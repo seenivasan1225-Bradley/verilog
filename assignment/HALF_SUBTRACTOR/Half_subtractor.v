@@ -84,4 +84,13 @@ module half_subtractor(
   or x1(diff,term1,term2);
   and x2(borrow,not_a,b);
 endmodule
-  
+----------------------------------------//parameter_initailization//---------------------------------------------------------
+module half_subtractor#(
+    parameter WIDTH = 1
+)(
+    input [WIDTH-1:0] a, b,
+    output [WIDTH-1:0] diff, borrow
+);
+    assign diff = a ^ b;
+    assign borrow = ~a & b;
+endmodule
