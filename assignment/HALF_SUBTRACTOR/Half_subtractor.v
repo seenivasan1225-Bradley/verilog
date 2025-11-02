@@ -94,3 +94,16 @@ module half_subtractor#(
     assign diff = a ^ b;
     assign borrow = ~a & b;
 endmodule
+-----------------------------------------------------//look-uptable//----------------------------------------------------------
+module half_subtractor(input a,b,
+                       output reg diff,borrow);
+  always@(*) begin
+    case({a,b})
+      2'b00:{diff,borrow}=2'b00;
+      2'b01:{diff,borrow}=2'b11;
+      2'b10:{diff,borrow}=2'b10;
+      2'b11:{diff,borrow}=2'b00;
+    endcase
+  end
+    endmodule
+    
