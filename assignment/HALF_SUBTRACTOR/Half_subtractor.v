@@ -1,11 +1,11 @@
------------------------------------------//dataflow_modeling//----------------------------------------------------------
+-----------------------------------------//1.dataflow_modeling//----------------------------------------------------------
 module half_subtractor(input a,b,
                        output diff,borrow);
   assign diff=a^b;
   assign borrow=~a&b;
 endmodule
 
-------------------------------------------//gate-level_modeling//---------------------------------------------------------
+------------------------------------------//2.gate-level_modeling//---------------------------------------------------------
 module half_subtractor(
   input a,b,
   output diff,borrow);
@@ -15,7 +15,7 @@ module half_subtractor(
   and a1(borrow,not_a,b);
 endmodule
 
------------------------------------------//behavioural modeling//-----------------------------------------------------------
+-----------------------------------------//3.behavioural modeling//-----------------------------------------------------------
 module  half_subtractor(
   		input a,b,
 		  output reg diff,borrow
@@ -26,7 +26,7 @@ module  half_subtractor(
      borrow = ~a&b;
   end
     endmodule
-------------------------------------//behavioural modeling case_statement//-------------------------------------------------
+------------------------------------//4.behavioural modeling case_statement//-------------------------------------------------
 module  half_subtractor(
   		input a,b,
 		  output reg diff,borrow
@@ -54,7 +54,7 @@ module  half_subtractor(
   end
 endmodule
 
---------------------------------------//functional level-coding//-------------------------------------------------------
+--------------------------------------//5.functional level-coding//-------------------------------------------------------
 module half_subtractor(
   			input a,b,
   			output diff,borrow
@@ -71,7 +71,7 @@ module half_subtractor(
   assign{borrow,diff}=half_sub(a,b);
 endmodule
 
------------------------------------------//structural level moding//-----------------------------------------------------
+-----------------------------------------//6.structural level moding//-----------------------------------------------------
 module half_subtractor(
   			input a,b,
   			output diff,borrow
@@ -84,7 +84,7 @@ module half_subtractor(
   or x1(diff,term1,term2);
   and x2(borrow,not_a,b);
 endmodule
-----------------------------------------//parameter_initailization//---------------------------------------------------------
+----------------------------------------//7.parameter_initailization//---------------------------------------------------------
 module half_subtractor#(
     parameter WIDTH = 1
 )(
@@ -94,7 +94,7 @@ module half_subtractor#(
     assign diff = a ^ b;
     assign borrow = ~a & b;
 endmodule
------------------------------------------------------//look-uptable//----------------------------------------------------------
+-----------------------------------------------------//8.look-up_table//----------------------------------------------------------
 module half_subtractor(input a,b,
                        output reg diff,borrow);
   always@(*) begin
@@ -106,4 +106,31 @@ module half_subtractor(input a,b,
     endcase
   end
     endmodule
-    
+--------------------------------------------//9.using half_adder --//to model//-- the half_subtractor//-------------------------------
+module half_subtractor(input a,b,
+                       output diff,borrow);
+  assign diff= ~({~a^b});
+    assign borrow=~a&b;
+endmodule
+
+--------------------------------------------//10.arithematic modelling//-----------------------------------------------------------------
+module half_subtractor(
+  input a,b,
+  output diff,borrow);
+  
+  assign {borrow,diff}=a-b;
+endmodule
+
+-----------------------------------------//11.ternary operators//-----------------------------------------------------------------------
+module half_subtractor(
+  input a,b,
+  output diff,borrow);
+  
+  assign diff=(a==b)?1'b0:1'b1;
+  assign borrow=(a<b)?1'b1:1'b0;
+endmodule
+
+
+
+
+
