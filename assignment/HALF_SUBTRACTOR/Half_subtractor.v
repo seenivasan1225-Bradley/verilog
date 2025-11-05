@@ -130,7 +130,32 @@ module half_subtractor(
   assign borrow=(a<b)?1'b1:1'b0;
 endmodule
 
+---------------------------------------//12.using generated block//----------------------------------------------------------------------
 
+module half_subtractor(
+  	input a,b,
+  output diff,borrow
+  );
+ genvar i;
+  generate
+    for(i=0;i<1;i=i+1)begin: sub_gen
+        assign diff=a^b;
+        assign borrow=~a&b;
+      end
+  endgenerate
+endmodule
+
+------------------------------------------//13.Using SystemVerilog Features//-----------------------------------
+module half_subtractor(
+    input logic a, b,
+    output logic diff, borrow
+);
+    
+    
+    always_comb begin
+        {borrow, diff} = '{~a & b, a ^ b};
+    end
+endmodule
 
 
 
