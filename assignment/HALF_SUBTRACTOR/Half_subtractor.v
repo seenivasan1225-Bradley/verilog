@@ -170,5 +170,22 @@ module half_subtractor(
     assign borrow = ~a & b;
 endmodule
 
-
-
+-------------------------------------------//15.conditional assignment//-----------------------------
+module half_subtractor(
+    input a, b,
+    output diff, borrow
+);
+    assign diff = (a & ~b) | (~a & b);
+    assign borrow = ~a & b;
+endmodule
+------------------------------------------//16.using exor&operation//----------------------------------
+module half_subtractor_reduction(
+    input a, b,
+    output diff, borrow
+);
+    
+    assign diff = ^{a, b};
+    
+    
+    assign borrow = (~a) & b;
+endmodule
