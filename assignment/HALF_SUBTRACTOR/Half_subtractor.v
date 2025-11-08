@@ -157,5 +157,18 @@ module half_subtractor(
     end
 endmodule
 
+-----------------------------------------//14.mux-based half_subtractor//-------------------------------------------
+module half_subtractor(
+    input a, b,
+    output diff, borrow
+);
+    
+   
+    assign diff = b ? ~a : a;
+    
+  
+    assign borrow = ~a & b;
+endmodule
+
 
 
