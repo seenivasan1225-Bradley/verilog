@@ -61,5 +61,18 @@ module half_adder(input a,b,
   endfunction
   assign {carry,sum}=half_adder(a,b);
 endmodule
+
+-----------------------------------------//6.structural modeling//-------------------------------------------------------------------------------
+module half_adder(input a,b,
+                  output sum,carry);  
+wire don1,don2,don3;
+  
+  not t1(not_a,a);
+  not t2(not_b,b);
+  and a1(don1,not_a,b);
+  and a2(don2,a,not_b);
+  xor x1(sum,don1,don2);
+  and e1(carry,a,b);
+endmodule
    
   
