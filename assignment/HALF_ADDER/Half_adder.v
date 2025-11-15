@@ -75,4 +75,27 @@ wire don1,don2,don3;
   and e1(carry,a,b);
 endmodule
    
+-------------------------------------//7.parameter_initialization _method//--------------------------------------------------------------------------
+module half_adder#(
+  		parameter Width=1
+)(input[Width-1:0] a,b,
+  output [Width-1:0]sum,carry);
+  
+  assign sum=a^b;
+  assign carry=a&b;
+endmodule
+
+--------------------------------------//8.look_up_table_method//----------------------------------------------------------------------------------------
+module half_adder(input a,b,
+                  output reg sum,carry);
+  always@(*)begin
+    case({a,b})
+      2'b00:{sum,carry}=2'b00;
+      2'b01:{sum,carry}=2'b10;
+      2'b10:{sum,carry}=2'b10;
+      2'b11:{sum,carry}=2'b01;
+    endcase
+  end
+endmodule
+  
   
