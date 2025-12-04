@@ -18,3 +18,12 @@ module fulladder(input a,b,c,
   and q4(w3,w1,c);
   or q5(carry,w2,w3);
 endmodule
+-------------------------------------------------3.BEHAVIOURAL_LEVELMODELING--------------------------------------
+module fulladder(input a,b,c,
+                 output reg sum,carry);
+  
+  always@(*)begin
+  sum=a^b^c;
+  carry=(a&b)|(b&c)|(a&c);
+end
+endmodule
