@@ -1,26 +1,29 @@
-module tb_half_adder;
-  reg a,b;
+ module halfadder_tb;
+   reg a,b;
   wire sum,carry;
   
-  half_adder DUT(
+  halfadder UUT(
     .a(a),
     .b(b),
     .sum(sum),
     .carry(carry)
   );
- 
-initial begin
-  $monitor("time=%0t,a=%b,b=%b,sum=%b,carry=%b",$time,a,b,sum,carry);
-    a=0;b=0;
-    #10;a=0;b=1;
-    #10;a=1;b=0;
-    #10;a=1;b=1;
-   #10;$display("successfully completed!");
-  $finish;   
-end
+  
+  
+ initial begin
+   $monitor("| %4t |  %1b  |  %1b  |   %1b   |   %1b  |",$time,a,b,sum,carry); 
+   $display(" TIME  |   A   |  B  |  SUM  |  CARRY  |");
+   $display("---------------------------------------");
+   a=0;b=0;#10;
+   a=0;b=1;#10;
+   a=1;b=0;#10;
+   a=1;b=1;#10;
+   $display("successfully completed!");
+    $finish;
+ end
  initial begin
    $dumpfile("start.vcd");
-   $dumpvars(0,tb_half_adder);
-     
-    end
-  endmodule
+   $dumpvars(0,halfadder_tb);
+ end
+endmodule
+   
