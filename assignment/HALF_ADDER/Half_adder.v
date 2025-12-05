@@ -101,7 +101,7 @@ endmodule
 ---------------------------------------//9.using generated block//----------------------------------------------------------------------
 
 
-module halfadder(input a,b,
+module half_adder(input a,b,
                  output sum,carry);
  genvar i;
  generate 
