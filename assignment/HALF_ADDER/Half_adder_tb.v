@@ -2,7 +2,7 @@
    reg a,b;
   wire sum,carry;
   
-  halfadder UUT(
+  half_adder UUT(
     .a(a),
     .b(b),
     .sum(sum),
