@@ -97,5 +97,18 @@ module half_adder(input a,b,
     endcase
   end
 endmodule
-  
+
+---------------------------------------//12.using generated block//----------------------------------------------------------------------
+
+
+module halfadder(input a,b,
+                 output sum,carry);
+ genvar i;
+ generate 
+   for (i=0;i<1;i=i+1)begin:sub_half
+      assign sum=a^b;
+      assign carry=a&b;
+    end
+  endgenerate
+endmodule
   
