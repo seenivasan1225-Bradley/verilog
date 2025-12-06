@@ -189,3 +189,7 @@ module half_subtractor_reduction(
     
     assign borrow = (~a) & b;
 endmodule
+
+
+
+                  
