@@ -111,4 +111,15 @@ module half_adder(input a,b,
     end
   endgenerate
 endmodule
+
+
+
+------------------------------------//10.system_verilog_using//------------------------------------------------------------------------
+module half_adder( input logic a,b,
+                  output logic sum,carry);
+  
+always_comb begin
+  {carry,sum}={a&b,a^b};
+end 
+endmodule
   
