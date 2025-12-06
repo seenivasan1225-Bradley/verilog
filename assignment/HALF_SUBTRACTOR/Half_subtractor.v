@@ -153,7 +153,7 @@ module half_subtractor(
     
     
     always_comb begin
-        {borrow, diff} = '{~a & b, a ^ b};
+        {borrow, diff} = {~a & b, a ^ b};
     end
 endmodule
 
