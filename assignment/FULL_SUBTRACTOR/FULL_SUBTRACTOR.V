@@ -25,5 +25,19 @@ module full_subtractor(
   and g5(w4,~a,c);
   or  g6(borrow,w2,w3,w4);
 endmodule
+
+-----------------------------------------3.behavioural_modeling------------------------------------------
+
+module full_subtractor(
+  	input a,b,c,
+  	output reg borrow,difference
+);
   
+
+  always@(*) begin
+    
+    difference= a^b^c;
+    borrow=(~a&b)|(b&c)|(~a&c);
+  end
+endmodule
   
