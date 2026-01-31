@@ -1,4 +1,5 @@
 
+
  module full_subtractor_tb;
    reg a,b,c;
   wire borrow,difference;
@@ -14,8 +15,8 @@
   
  initial begin
    $display("|---------------|-----|-----|--------|------------|");
-   $monitor("| %4t ----> %b  | %b   |   %b |   %b    |     %b      |",$time,a  ,b  ,c  ,borrow  ,difference );
-   $display("|TIME ---->  A  | B   |  C  | BORROW | DIFFERENCE |");
+   $monitor("| %4t --->| %b  | %b   |   %b |   %b    |     %b      |",$time,a  ,b  ,c  ,borrow  ,difference );
+   $display("|TIME --->| A  | B   |  C  | BORROW | DIFFERENCE |");
    $display("|---------------|-----|-----|--------|------------|");
    a=0;b=0;c=0;#10;
    $display("|---------------|-----|-----|--------|------------|");
